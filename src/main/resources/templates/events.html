@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin-Events Page</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="/products.css" />
+    <script src="https://kit.fontawesome.com/8bcbe00761.js" crossorigin="anonymous"></script>
+<link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+<body>
+<nav id="sidebar" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+                <!-- sidebar content goes in here -->
+                <div class="position-sticky pt-md-5">
+                <div class="sidebar-brand">
+        <div class="brand-flex">
+<!--           <img src="" th:src="@{/images/logo2.png}" alt="" /> -->
+          <img src="" th:src="@{/images/logo2.png}" alt="logo" width="80px" height="60px">
+          <h1>Sportify</h1>
+          <br />
+        </div>
+      </div>
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                          <a class="nav-link" th:href="@{/admin}">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-home"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+                             <span class="ml-2"> Dashboard </span> 
+                            
+                          </a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" href="#">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file"><path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path><polyline points="13 2 13 9 20 9"></polyline></svg>
+                            <span class="ml-2">Orders</span>
+                          </a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" th:href="@{/admin/products}">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-shopping-cart"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
+                            <span class="ml-2">Products</span>
+                          </a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link active" th:href="@{/admin/events}">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-gift" viewBox="0 0 20 20"><path d="M3 2.5a2.5 2.5 0 0 1 5 0 2.5 2.5 0 0 1 5 0v.006c0 .07 0 .27-.038.494H15a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1v7.5a1.5 1.5 0 0 1-1.5 1.5h-11A1.5 1.5 0 0 1 1 14.5V7a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h2.038A2.968 2.968 0 0 1 3 2.506V2.5zm1.068.5H7v-.5a1.5 1.5 0 1 0-3 0c0 .085.002.274.045.43a.522.522 0 0 0 .023.07zM9 3h2.932a.56.56 0 0 0 .023-.07c.043-.156.045-.345.045-.43a1.5 1.5 0 0 0-3 0V3zM1 4v2h6V4H1zm8 0v2h6V4H9zm5 3H9v8h4.5a.5.5 0 0 0 .5-.5V7zm-7 8V7H2v7.5a.5.5 0 0 0 .5.5H7z"/></svg>
+                            <span class="ml-2">Events</span>
+                          </a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" th:href="@{/admin/coupons}">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-ticket" viewBox="0 0 16 16">
+                             <path d="M0 4.5A1.5 1.5 0 0 1 1.5 3h13A1.5 1.5 0 0 1 16 4.5V6a.5.5 0 0 1-.5.5 1.5 1.5 0 0 0 0 3 .5.5 0 0 1 .5.5v1.5a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 0 11.5V10a.5.5 0 0 1 .5-.5 1.5 1.5 0 1 0 0-3A.5.5 0 0 1 0 6V4.5ZM1.5 4a.5.5 0 0 0-.5.5v1.05a2.5 2.5 0 0 1 0 4.9v1.05a.5.5 0 0 0 .5.5h13a.5.5 0 0 0 .5-.5v-1.05a2.5 2.5 0 0 1 0-4.9V4.5a.5.5 0 0 0-.5-.5h-13Z"/>
+                            </svg>     
+                            <span class="ml-2"> Coupons</span>
+                          </a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" href="#">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-users"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                            <span class="ml-2">Customers</span>
+                          </a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" th:href="@{/admin/categories}">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-users"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                            <span class="ml-2">Categories</span>
+                          </a>
+                        </li>
+                      </ul>
+                  </div>
+            </nav>
+    <div class="main-content">
+      
+      <main>
+<div class="container-fluid text-center">
+<div>
+<h2>Manage Events</h2>
+</div>
+<div class="m-2">
+<a class="h3" th:href="@{/admin/events/new}">Add New Events</a>
+</div>
+<div th:if="${message}" class="alert alert-success text-center">
+[[${message}]]
+</div>
+<div>
+<table class="table table-boarder " >
+<thead class="thead-dark">
+<tr>
+<th>Event-id</th>
+<th>Event-name</th>
+<th>Start-date</th>
+<th>End-date</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<th:block th:each="ev : ${listEvents}">
+<tr>
+<td>[[${ev.Eid}]]</td>
+<td>[[${ev.Ename}]]</td>
+<td>[[${ev.Estartdate}]]</td>
+<td>[[${ev.Eenddate}]]</td>
+<td>
+<a class="btn btn-warning h4 mr-3" th:href="@{'/admin/events/edit/'+${ev.Eid}}">Update</a>
+<a class="btn btn-danger h4" th:href="@{'/admin/events/delete/'+${ev.Eid}}">Delete</a>
+</td>
+</tr>
+</th:block>
+</tbody>
+</table>
+</div>
+</div>
+</main>
+</div>
+</body>
+</html>

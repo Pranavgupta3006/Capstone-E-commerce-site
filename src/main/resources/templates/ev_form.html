@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>[[${pageTitle}]]</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+          integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+<link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css" />
+</head>
+<body>
+<div class="container-fluid ">
+<div class="text-center"><h2>[[${pageTitle}]]</h2></div>
+
+<form th:action="@{/admin/events/save}" method="post" th:object="${ev}" style="max-width: 500px; margin: 0 auto;">
+<input type="hidden" th:field="*{Eid}">
+<div class="border border-seconary rounded p-3">
+<div class="form-group row">
+<label class="col-sm-4 col-form-lable">Event-name</label>
+<div class="col-sm-8">
+<input type="text" th:field="*{Ename}" class="form-control" required>
+</div>
+</div>
+
+<div class="form-group row">
+<label class="col-sm-4 col-form-lable">Start-date</label>
+<div class="col-sm-8">
+<input type="date" th:field="*{Estartdate}" class="form-control" required/>
+
+</div>
+</div>
+
+<div class="form-group row">
+<label class="col-sm-4 col-form-lable">End-date</label>
+<div class="col-sm-8">
+<input type="date" th:field="*{Eenddate}" class="form-control" required/>
+
+</div>
+</div>
+
+<div class="text-center">
+<button type="submit" class="btn btn-primary m-2">Save</button>
+<button type="button" class="btn btn-secondary m-2" onclick="cancelForm()">Cancel</button>
+</div>
+</div>
+</form>
+</div>
+<script type="text/javascript">
+function cancelForm(){
+	window.location = "[[@{/admin/events}]]"
+}
+</script>
+</body>
+</html>
